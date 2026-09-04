@@ -1,0 +1,786 @@
+/* ==================== ROOT ==================== */
+:root {
+    --sakura-bg: url("sakura.png");
+    --pink-soft: #f8dfe7;
+    --pink-light: #fcecf1;
+    --pink-deep: #c9829b;
+    --rose: #a85d78;
+    --text-dark: #4a3540;
+    --text-soft: #765d67;
+    --white-soft: rgba(255, 255, 255, 0.82);
+    --border-soft: rgba(255, 255, 255, 0.65);
+    --shadow-soft: 0 20px 60px rgba(88, 45, 61, 0.18);
+    --transition: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* ==================== RESET ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--text-dark);
+    background: #f8e9ee;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+button,
+a {
+    font: inherit;
+}
+button {
+    border: 0;
+    outline: 0;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+/* ==================== MAIN INVITATION ==================== */
+.invitation {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    isolation: isolate;
+}
+/* ==================== SCENE ==================== */
+.scene {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.04);
+    transition:
+        opacity var(--transition),
+        transform var(--transition),
+        visibility 0s linear 0.8s;
+    z-index: 1;
+}
+.scene::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--sakura-bg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -3;
+    transform: scale(1.03);
+}
+.scene::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 244, 248, 0.38) 0%,
+            rgba(255, 244, 248, 0.16) 35%,
+            rgba(255, 240, 246, 0.30) 100%
+        );
+    z-index: -2;
+}
+.scene.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    z-index: 5;
+    transition:
+        opacity var(--transition),
+        transform var(--transition),
+        visibility 0s linear 0s;
+}
+.scene.previous {
+    visibility: visible;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.96);
+    z-index: 2;
+}
+/* ==================== MUSIC BUTTON ==================== */
+.music-button {
+    position: fixed;
+    top: 22px;
+    right: 22px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.78);
+    color: var(--rose);
+    border: 1px solid rgba(168, 93, 120, 0.18);
+    box-shadow: 0 8px 25px rgba(88, 45, 61, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+    z-index: 100;
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.music-button:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 12px 30px rgba(88, 45, 61, 0.22);
+}
+.music-button:active {
+    transform: scale(0.94);
+}
+.music-icon {
+    font-size: 21px;
+}
+#musicIcon {
+    font-size: 22px;
+    line-height: 1;
+}
+.music-button.playing #musicIcon {
+    animation: musicPulse 1.5s ease-in-out infinite;
+}
+@keyframes musicPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.18);
+    }
+}
+/* ==================== COVER ==================== */
+.scene-cover {
+    perspective: 1200px;
+}
+.cover-content {
+    position: relative;
+    width: min(86vw, 430px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+.invitation-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow:
+        0 30px 80px rgba(70, 35, 48, 0.28),
+        0 8px 25px rgba(70, 35, 48, 0.14);
+    cursor: pointer;
+    transform:
+        translateY(0)
+        rotateX(0)
+        rotateY(0)
+        scale(1);
+    transition:
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.85s ease,
+        border-radius 0.85s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-origin: center center;
+    z-index: 2;
+}
+.invitation-card::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 2;
+}
+.invitation-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.18),
+            transparent 40%,
+            rgba(255, 255, 255, 0.08)
+        );
+    pointer-events: none;
+    z-index: 3;
+}
+.invitation-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.invitation-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow:
+        0 40px 90px rgba(70, 35, 48, 0.32),
+        0 12px 30px rgba(70, 35, 48, 0.18);
+}
+.invitation-card:active {
+    transform: scale(0.98);
+}
+/* ==================== COVER OPEN ANIMATION ==================== */
+.scene-cover.opened .invitation-card {
+    transform:
+        scale(2.15)
+        rotateX(0deg)
+        rotateY(0deg);
+    border-radius: 6px;
+    box-shadow:
+        0 0 60px rgba(255, 255, 255, 0.65),
+        0 0 110px rgba(201, 130, 155, 0.25);
+    transition:
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.85s ease,
+        border-radius 0.85s ease;
+    will-change: transform;
+}
+.scene-cover.opened::after {
+    background: rgba(255, 244, 248, 0.72);
+    transition: background 0.85s ease;
+}
+/* ==================== COMMON CONTENT ==================== */
+.birthday-content,
+.photo-content,
+.message-content,
+.together-content,
+.closing-content {
+    position: relative;
+    width: min(90vw, 720px);
+    text-align: center;
+    z-index: 2;
+}
+/* ==================== BIRTHDAY ==================== */
+.birthday-content {
+    padding: 48px 30px;
+    border-radius: 30px;
+    background: rgba(255, 250, 252, 0.60);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateY(30px);
+    opacity: 0;
+    transition:
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
+        opacity 1s ease 0.15s;
+}
+.scene-birthday.active .birthday-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+.birthday-small-text {
+    margin-bottom: 14px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+}
+.birthday-content h1 {
+    margin-bottom: 8px;
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: clamp(48px, 9vw, 86px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--rose);
+}
+.birthday-content h2 {
+    margin-bottom: 22px;
+    font-size: clamp(24px, 5vw, 38px);
+    font-weight: 500;
+    color: var(--text-dark);
+}
+.birthday-message {
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.8;
+    color: var(--text-soft);
+}
+/* ==================== SECTION LABEL ==================== */
+.section-label {
+    margin-bottom: 12px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--rose);
+}
+/* ==================== MAIN PHOTO ==================== */
+.photo-content {
+    padding: 35px 25px;
+}
+.main-photo {
+    position: relative;
+    width: min(72vw, 390px);
+    aspect-ratio: 4 / 5;
+    margin: 0 auto 22px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow:
+        0 25px 55px rgba(88, 45, 61, 0.22),
+        0 8px 20px rgba(88, 45, 61, 0.12);
+    transform: rotate(-1.5deg) translateY(30px);
+    opacity: 0;
+    transition:
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1s ease;
+}
+.scene-photo.active .main-photo {
+    transform: rotate(-1.5deg) translateY(0);
+    opacity: 1;
+}
+.main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.photo-content h2 {
+    font-size: clamp(25px, 5vw, 38px);
+    font-weight: 500;
+    color: var(--text-dark);
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.8s ease 0.25s,
+        transform 0.8s ease 0.25s;
+}
+.scene-photo.active .photo-content h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ==================== MESSAGE ==================== */
+.message-content {
+    padding: 45px 35px;
+    border-radius: 28px;
+    background: rgba(255, 250, 252, 0.72);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transform: translateY(35px);
+    opacity: 0;
+    transition:
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.9s ease;
+}
+.scene-message.active .message-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+.message-content h2 {
+    margin-bottom: 25px;
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: clamp(40px, 8vw, 66px);
+    font-weight: 400;
+    color: var(--rose);
+}
+.message-text {
+    max-width: 580px;
+    margin: 0 auto;
+}
+.message-text p {
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 2;
+    color: var(--text-soft);
+}
+.sender-name {
+    margin-top: 30px;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--rose);
+}
+/* ==================== TOGETHER ==================== */
+.together-content {
+    padding: 35px 20px;
+}
+.photo-pair {
+    position: relative;
+    width: min(88vw, 620px);
+    height: min(65vh, 500px);
+    min-height: 340px;
+    margin: 0 auto;
+}
+.memory-photo {
+    position: absolute;
+    width: min(58vw, 330px);
+    aspect-ratio: 4 / 5;
+    padding: 9px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow:
+        0 25px 55px rgba(88, 45, 61, 0.22),
+        0 8px 20px rgba(88, 45, 61, 0.12);
+    transition:
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1s ease;
+    opacity: 0;
+}
+.memory-photo:first-child {
+    left: 5%;
+    top: 8%;
+    transform: translateX(-60px) rotate(-7deg);
+}
+.memory-photo:last-child {
+    right: 5%;
+    bottom: -6%;
+    transform: translateX(60px) rotate(7deg);
+}
+/* FOTO KEDUA LANDSCAPE */
+.memory-photo:last-child {
+    width: min(58vw, 400px);
+    aspect-ratio: 4 / 3;
+}
+.scene-together.active .memory-photo:first-child {
+    opacity: 1;
+    transform: translateX(0) rotate(-7deg);
+}
+.scene-together.active .memory-photo:last-child {
+    opacity: 1;
+    transform: translateX(0) rotate(7deg);
+    transition-delay: 0.18s;
+}
+.memory-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* ==================== CLOSING ==================== */
+.closing-content {
+    padding: 50px 30px;
+}
+.closing-sender {
+    margin-bottom: 32px;
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: clamp(42px, 9vw, 72px);
+    line-height: 1.1;
+    color: var(--rose);
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.scene-closing.active .closing-sender {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ==================== WHATSAPP BUTTON ==================== */
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    min-height: 54px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: var(--rose);
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow:
+        0 12px 30px rgba(168, 93, 120, 0.28),
+        0 4px 10px rgba(88, 45, 61, 0.12);
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity 0.8s ease 0.25s,
+        transform 0.8s ease 0.25s,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.scene-closing.active .whatsapp-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+.whatsapp-button:hover {
+    background: #934e68;
+    box-shadow:
+        0 16px 35px rgba(168, 93, 120, 0.34),
+        0 5px 14px rgba(88, 45, 61, 0.16);
+    transform: translateY(-3px);
+}
+.whatsapp-button:active {
+    transform: translateY(0) scale(0.97);
+}
+/* ==================== TABLET ==================== */
+@media (max-width: 768px) {
+    .music-button {
+        top: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+    }
+    .cover-content {
+        width: min(82vw, 390px);
+    }
+    .birthday-content {
+        width: 88vw;
+        padding: 42px 24px;
+        border-radius: 24px;
+    }
+    .message-content {
+        width: 88vw;
+        padding: 38px 24px;
+        border-radius: 24px;
+    }
+    .main-photo {
+        width: min(70vw, 350px);
+    }
+    .photo-pair {
+        width: 90vw;
+        height: 60vh;
+    }
+    .memory-photo {
+        width: min(54vw, 290px);
+    }
+    .memory-photo:last-child {
+        width: min(62vw, 340px);
+        aspect-ratio: 4 / 3;
+    }
+}
+/* ==================== MOBILE ==================== */
+@media (max-width: 600px) {
+    .scene::before {
+        background-position: center center;
+    }
+    .cover-content {
+        width: 78vw;
+        max-width: 340px;
+    }
+    .invitation-card {
+        border-radius: 13px;
+        box-shadow:
+            0 24px 60px rgba(70, 35, 48, 0.26),
+            0 7px 20px rgba(70, 35, 48, 0.13);
+    }
+    .invitation-card::before {
+        inset: 7px;
+        border-radius: 8px;
+    }
+    .scene-cover.opened .invitation-card {
+        transform: scale(2.35);
+    }
+    .birthday-content {
+        width: 88vw;
+        padding: 35px 20px;
+        border-radius: 22px;
+    }
+    .birthday-small-text {
+        margin-bottom: 12px;
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+    .birthday-content h1 {
+        font-size: clamp(45px, 14vw, 66px);
+    }
+    .birthday-content h2 {
+        margin-bottom: 18px;
+        font-size: clamp(22px, 7vw, 30px);
+    }
+    .birthday-message {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+    .photo-content {
+        padding: 30px 18px;
+    }
+    .section-label {
+        margin-bottom: 10px;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+    .main-photo {
+        width: min(72vw, 310px);
+        margin-bottom: 18px;
+        padding: 8px;
+    }
+    .photo-content h2 {
+        font-size: 27px;
+    }
+    .message-content {
+        width: 88vw;
+        padding: 35px 20px;
+        border-radius: 22px;
+    }
+    .message-content h2 {
+        margin-bottom: 20px;
+        font-size: clamp(38px, 12vw, 54px);
+    }
+    .message-text p {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+    .sender-name {
+        margin-top: 24px;
+        font-size: 15px;
+    }
+    .together-content {
+        padding: 25px 10px;
+    }
+    .photo-pair {
+        width: 94vw;
+        height: 58vh;
+        min-height: 310px;
+    }
+    .memory-photo {
+        width: 55vw;
+        max-width: 245px;
+        padding: 7px;
+    }
+    .memory-photo:first-child {
+        left: 1%;
+        top: 6%;
+    }
+    .memory-photo:last-child {
+        right: 1%;
+        bottom: -7%;
+        width: 65vw;
+        max-width: 300px;
+        aspect-ratio: 4 / 3;
+    }
+    .closing-content {
+        width: 90vw;
+        padding: 40px 20px;
+    }
+    .closing-sender {
+        margin-bottom: 26px;
+        font-size: clamp(40px, 13vw, 58px);
+    }
+    .whatsapp-button {
+        min-width: 205px;
+        min-height: 50px;
+        padding: 13px 24px;
+        font-size: 13px;
+    }
+}
+/* ==================== SMALL MOBILE ==================== */
+@media (max-width: 380px) {
+    .cover-content {
+        width: 76vw;
+    }
+    .birthday-content {
+        padding: 30px 17px;
+    }
+    .message-content {
+        padding: 30px 17px;
+    }
+    .main-photo {
+        width: 70vw;
+    }
+    .photo-pair {
+        min-height: 285px;
+    }
+    .memory-photo {
+        width: 53vw;
+        max-width: 215px;
+    }
+    .memory-photo:last-child {
+        width: 60vw;
+        max-width: 250px;
+        aspect-ratio: 4 / 3;
+    }
+    .closing-sender {
+        font-size: 40px;
+    }
+}
+/* ==================== LANDSCAPE MOBILE ==================== */
+@media (max-height: 600px) and (orientation: landscape) {
+    .music-button {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    .cover-content {
+        height: 88vh;
+        width: auto;
+    }
+    .invitation-card {
+        height: 88vh;
+        width: auto;
+        aspect-ratio: 3 / 4;
+    }
+    .birthday-content {
+        max-height: 88vh;
+        padding: 20px 30px;
+        overflow-y: auto;
+    }
+    .main-photo {
+        height: 65vh;
+        width: auto;
+    }
+    .photo-pair {
+        height: 82vh;
+        min-height: 0;
+    }
+    .memory-photo {
+        height: 68vh;
+        width: auto;
+    }
+    .memory-photo:last-child {
+        height: 52vh;
+        width: auto;
+        aspect-ratio: 4 / 3;
+    }
+    .closing-content {
+        padding: 20px;
+    }
+    .closing-sender {
+        margin-bottom: 18px;
+    }
+}
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+/* ==================== TOUCH ==================== */
+@media (hover: none) {
+    .invitation-card:hover {
+        transform: none;
+    }
+    .music-button:hover {
+        transform: none;
+    }
+    .whatsapp-button:hover {
+        transform: none;
+    }
+}
