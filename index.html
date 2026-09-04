@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ==================== MUSIC ==================== -->
+    <button id="musicButton" class="music-button" aria-label="Toggle music">
+        <span id="musicIcon">🔇</span>
+    </button>
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="" type="audio/mpeg">
+    </audio>
+    <!-- ==================== MAIN INVITATION ==================== -->
+    <main class="invitation">
+        <div id="sakuraContainer" aria-hidden="true"></div>
+        <!-- ==================== COVER ==================== -->
+        <section id="cover" class="scene scene-cover active">
+            <div class="cover-content">
+                <button id="openInvitation" class="invitation-card" aria-label="Buka undangan">
+                    <img id="coverImage" src="" alt="">
+                </button>
+            </div>
+        </section>
+        <!-- ==================== HAPPY BIRTHDAY ==================== -->
+        <section id="birthday" class="scene scene-birthday">
+            <div class="birthday-content">
+                <p id="birthdaySmallText" class="birthday-small-text"></p>
+                <h1 id="birthdayTitle"></h1>
+                <h2 id="birthdayName"></h2>
+                <p id="birthdayMessage" class="birthday-message"></p>
+            </div>
+        </section>
+        <!-- ==================== BIRTHDAY PHOTO ==================== -->
+        <section id="photo" class="scene scene-photo">
+            <div class="photo-content">
+                <p id="photoLabel" class="section-label"></p>
+                <div class="main-photo">
+                    <img id="mainPhoto" src="" alt="">
+                </div>
+                <h2 id="photoName"></h2>
+            </div>
+        </section>
+        <!-- ==================== MESSAGE ==================== -->
+        <section id="message" class="scene scene-message">
+            <div class="message-content">
+                <p id="messageLabel" class="section-label"></p>
+                <h2 id="messageTitle"></h2>
+                <div class="message-text">
+                    <p id="messageText"></p>
+                </div>
+                <p id="messageSender" class="sender-name"></p>
+            </div>
+        </section>
+        <!-- ==================== TOGETHER ==================== -->
+        <section id="together" class="scene scene-together">
+            <div class="together-content">
+                <p id="memoriesLabel" class="section-label"></p>
+                <div class="photo-pair">
+                    <div class="memory-photo">
+                        <img id="memoryPhoto1" src="" alt="">
+                    </div>
+                    <div class="memory-photo">
+                        <img id="memoryPhoto2" src="" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==================== CLOSING ==================== -->
+        <section id="closing" class="scene scene-closing">
+            <div class="closing-content">
+                <p id="closingSender" class="closing-sender"></p>
+                <a id="whatsappButton" href="#" class="whatsapp-button">
+                    Balas via WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
