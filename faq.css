@@ -1,0 +1,158 @@
+body.faq-page .faq-hero {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+body.faq-page .faq-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #59171b, #8f2f2f, #d4a537);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+body.faq-page .faq-deskripsi {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #fff8ec;
+}
+body.faq-page .faq-container {
+    max-width: 900px;
+    margin: 40px auto 0;
+}
+body.faq-page .faq-item {
+    margin-bottom: 15px;
+    background: rgba(254, 215, 184, 0.15);
+    border: 1px solid rgba(254, 215, 184, 0.35);
+    border-radius: 12px;
+    overflow: hidden;
+}
+body.faq-page .faq-question {
+    width: 100%;
+    padding: 18px 22px;
+    border: none;
+    background: transparent;
+    color: #59171b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+body.faq-page .faq-question:hover {
+    background: rgba(254, 215, 184, 0.15);
+}
+body.faq-page .faq-icon {
+    font-size: 24px;
+    color: #59171b;
+    transition: transform 0.3s ease;
+}
+
+/* Transisi Grid Animasi FAQ Halus Tanpa Loncat */
+body.faq-page .faq-answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+}
+body.faq-page .faq-answer-inner {
+    overflow: hidden;
+}
+body.faq-page .faq-answer-inner p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #fff8ec;
+    padding: 0 22px 20px 22px;
+    margin: 0;
+}
+body.faq-page .faq-item.active .faq-answer-wrapper {
+    grid-template-rows: 1fr;
+}
+body.faq-page .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* Preferensi Pengguna (Mengurangi Efek Animasi) */
+@media (prefers-reduced-motion: reduce) {
+    body.faq-page .faq-answer-wrapper,
+    body.faq-page .faq-icon {
+        transition: none;
+    }
+}
+
+/* Kontak FAQ */
+body.faq-page .faq-contact {
+    max-width: 900px;
+    margin: 50px auto 20px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(89, 23, 27, 0.12);
+    border-radius: 15px;
+}
+body.faq-page .faq-contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #59171b;
+    margin-bottom: 10px;
+}
+body.faq-page .faq-contact p {
+    font-size: 14px;
+    color: #fff8ec;
+    margin-bottom: 20px;
+}
+body.faq-page .faq-contact-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #fff3d6;
+    background: linear-gradient(135deg, #fed7b8, #e8c766);
+    color: #59171b;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.25s ease;
+}
+body.faq-page .faq-contact-button:hover {
+    background: linear-gradient(135deg, #fff8e1, #fed7b8);
+}
+
+/* ========================= RESPONSIVE FAQ ========================= */
+@media (max-width: 768px) {
+    body.faq-page .faq-title { 
+        font-size: 34px; 
+    }
+    body.faq-page .faq-deskripsi {
+        font-size: 15px;
+    }
+    body.faq-page .faq-question {
+        font-size: 16px;
+        padding: 15px 18px;
+    }
+    body.faq-page .faq-answer-inner p {
+        padding: 0 18px 18px 18px;
+        font-size: 13.5px;
+    }
+    body.faq-page .faq-contact {
+        padding: 25px 15px;
+    }
+    body.faq-page .faq-contact h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    body.faq-page .faq-title { 
+        font-size: 28px; 
+    }
+    body.faq-page .faq-question {
+        font-size: 15px;
+        padding: 14px 15px;
+    }
+    body.faq-page .faq-answer-inner p {
+        padding: 0 15px 15px 15px;
+    }
+}

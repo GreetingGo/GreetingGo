@@ -1,0 +1,270 @@
+/* ========================= RESET & FONT ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    min-height: 100%;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(160deg, #fed7b8 0%, #f8dba0 30%, #e8c766 65%, #d4a537 100%);
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ========================= LAYOUT GLOBAL ========================= */
+.container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 110px 30px 50px; 
+    display: block;
+}
+
+/* ========================= HEADER & SIDEBAR ========================= */
+.sidebar {
+    width: 100%;
+    height: 74px;
+    padding: 0 95px 0 28px;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #7a2130 0%, #59171b 55%, #8f2f2f 100%);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+    z-index: -1;
+}
+
+/* ========================= LOGO ========================= */
+.logo {
+    font-size: 21px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: #fed7b8;
+    text-shadow: 0 0 7px rgba(254, 215, 184, 0.45);
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.brand-icon {
+    position: fixed;
+    top: 0;
+    right: 28px;
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+}
+.brand-icon img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: drop-shadow(0 2px 5px rgba(89, 23, 27, 0.25));
+}
+
+/* ========================= NAVIGASI ========================= */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #fed7b8;
+}
+nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+nav a {
+    color: #fff8ec;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+    white-space: nowrap;
+}
+nav a:hover, nav a.active {
+    color: #fed7b8;
+    text-shadow: 0 0 8px rgba(254, 215, 184, 0.6);
+}
+nav a.active {
+    border-bottom: 2px solid #fed7b8;
+    padding-bottom: 3px;
+}
+
+/* ========================= FOOTER ========================= */
+footer {
+    width: 100%;
+    background: linear-gradient(180deg, #7a2130, #59171b);
+    color: #fed7b8;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 15px;
+    padding: 15px 20px 25px 20px;
+    font-size: 13px;
+    text-align: center;
+}
+footer a {
+    color: #fed7b8;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+footer a:hover {
+    color: #fff8e1;
+}
+
+/* ========================= TOMBOL PESAN ========================= */
+.btn-pesan {
+    position: fixed;
+    right: 28px;
+    bottom: 17px;
+    z-index: 9999;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid #fff3d6;
+    background: linear-gradient(135deg, #fed7b8, #e8c766);
+    color: #59171b;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(89, 23, 27, 0.25);
+    transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.btn-pesan:hover {
+    background: linear-gradient(135deg, #fff8e1, #fed7b8);
+    box-shadow: 0 6px 16px rgba(89, 23, 27, 0.35);
+    transform: translateY(-1px);
+}
+
+/* ========================= BREAKPOINT RESPONSIVE (TABLET & MOBILE) ========================= */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 15px;
+    }
+    nav a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        height: 65px;
+        padding: 0 55px 0 16px;
+        justify-content: space-between;
+    }
+    .logo {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+        font-size: 18px;
+    }
+    .brand-icon {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+    }
+    .brand-icon img {
+        width: 38px;
+        height: 38px;
+    }
+    main {
+        padding: 90px 15px 40px;
+    }
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        margin: 0;
+        padding: 80px 20px 20px;
+        background: linear-gradient(180deg, #7a2130 0%, #59171b 55%, #8f2f2f 100%);
+        transform: translateX(-100%);
+        transition: transform 0.35s ease;
+        box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+    }
+    nav.active {
+        transform: translateX(0);
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 3100;
+    }
+    .btn-pesan {
+        right: 16px;
+        bottom: 16px;
+        padding: 9px 15px;
+        font-size: 13px;
+    }
+    footer {
+        padding: 15px 15px 70px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar { 
+        height: 60px; 
+        padding: 0 50px 0 12px; 
+    }
+    .logo { 
+        font-size: 16px; 
+    }
+    .brand-icon { 
+        top: 11px; 
+        right: 12px; 
+    }
+    .brand-icon img { 
+        width: 34px; 
+        height: 34px; 
+    }
+    main {
+        padding: 80px 12px 30px;
+    }
+    nav { 
+        width: 230px; 
+        padding-top: 75px; 
+    }
+    .btn-pesan {
+        right: 12px;
+        bottom: 12px;
+        padding: 8px 13px;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template | GreetingGo</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <meta name="description" content="GreetingGo - Layanan pembuatan kartu ucapan digital yang elegan untuk pernikahan, ulang tahun, surat cinta, wisuda, dan momen spesial lainnya.">
+    <meta property="og:title" content="GreetingGo | Kartu Ucapan Digital Elegan">
+    <meta property="og:description" content="Buat kartu ucapan digital yang indah dengan mudah untuk setiap momen spesialmu.">
+    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="template.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="template-page">
+    <div class="container">
+        <header class="sidebar">
+            <button class="menu-toggle" aria-expanded="false">☰</button>
+            <div class="logo">
+                GreetingGo
+                <span class="brand-icon">
+                    <img src="logo.png" alt="GreetingGo">
+                </span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="template.html" class="active">Template</a></li>
+                    <li><a href="cara-pesan.html">Cara Pesan & Ketentuan</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+            <a href="https://www.instagram.com/greeting.go?mdxt=Z242bnY5d25pdTVn" class="btn-pesan" target="_blank">Pesan Sekarang</a>
+        </header>
+        <main>
+            <section class="template">
+                <div class="template-hero">
+                    <h1 class="template-title">Template GreetingGo</h1>
+                    <p class="template-deskripsi">
+                        Pilih template yang sesuai untuk kartu ucapan digitalmu
+                    </p>
+                </div>
+                <div class="template-filter">
+                    <button class="filter-button active" data-filter="semua">Semua</button>
+                    <button class="filter-button" data-filter="Pernikahan">Pernikahan</button>
+                    <button class="filter-button" data-filter="Ulang Tahun">Ulang Tahun</button>
+                    <button class="filter-button" data-filter="Surat Cinta">Surat Cinta</button>
+                    <button class="filter-button" data-filter="Wisuda">Wisuda</button>
+                    <button class="filter-button" data-filter="Acara Lainnya">Acara Lainnya</button>
+                </div>
+                <div id="template-container" class="template-container">
+                    <p id="empty-state-message" style="display: none; text-align: center; width: 100%; grid-column: 1 / -1; color: #fff8ec; font-size: 16px;">
+                        Belum ada template untuk kategori ini.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>GreetingGo © 2026</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

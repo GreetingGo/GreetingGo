@@ -1,0 +1,151 @@
+/* ========================= HALAMAN CARA PESAN & KETENTUAN ========================= */
+body.cara-pesan-page .cara-pesan {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+body.cara-pesan-page .cp-hero {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+body.cara-pesan-page .cp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #59171b, #8f2f2f, #d4a537);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 8px rgba(89, 23, 27, 0.18);
+}
+
+body.cara-pesan-page .cp-deskripsi {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #fff8ec;
+    text-shadow: 0 1px 4px rgba(89, 23, 27, 0.35);
+}
+
+body.cara-pesan-page .cp-section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #59171b;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ========================= GRID TAHAPAN (STEPS) ========================= */
+body.cara-pesan-page .cp-steps-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+body.cara-pesan-page .cp-step-card {
+    background: rgba(254, 215, 184, 0.15);
+    border: 1px solid rgba(254, 215, 184, 0.35);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(89, 23, 27, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mengatur agar card terakhir (card ke-5) memenuhi 2 kolom dan berada di tengah pada layar besar */
+body.cara-pesan-page .cp-step-card.cp-card-center {
+    grid-column: span 2;
+    max-width: calc(50% - 12.5px);
+    margin: 0 auto;
+    width: 100%;
+}
+
+body.cara-pesan-page .cp-step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(89, 23, 27, 0.22);
+}
+
+body.cara-pesan-page .step-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #59171b;
+    opacity: 0.85;
+    margin-bottom: 10px;
+}
+
+body.cara-pesan-page .cp-step-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    color: #59171b;
+    margin-bottom: 10px;
+}
+
+body.cara-pesan-page .cp-step-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #fff8ec;
+}
+
+/* ========================= SYARAT & KETENTUAN (TERMS BOX) ========================= */
+body.cara-pesan-page .cp-terms-box {
+    background: rgba(254, 215, 184, 0.12);
+    border: 1px solid rgba(254, 215, 184, 0.3);
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 5px 15px rgba(89, 23, 27, 0.12);
+}
+
+body.cara-pesan-page .cp-terms-box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+body.cara-pesan-page .cp-terms-box li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #fff8ec;
+    margin-bottom: 12px;
+}
+
+body.cara-pesan-page .cp-terms-box li strong {
+    color: #59171b;
+}
+
+body.cara-pesan-page .cp-terms-box li:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================= RESPONSIVE CARA PESAN ========================= */
+@media (max-width: 768px) {
+    body.cara-pesan-page .cp-title {
+        font-size: 34px;
+    }
+    body.cara-pesan-page .cp-steps-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    /* Reset perataan card center di mode 1 kolom */
+    body.cara-pesan-page .cp-step-card.cp-card-center {
+        grid-column: span 1;
+        max-width: 100%;
+    }
+    body.cara-pesan-page .cp-terms-box {
+        padding: 20px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    body.cara-pesan-page .cp-title {
+        font-size: 28px;
+    }
+    body.cara-pesan-page .cp-deskripsi {
+        font-size: 14px;
+    }
+    body.cara-pesan-page .cp-step-card {
+        padding: 20px;
+    }
+}
