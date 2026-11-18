@@ -8,16 +8,33 @@ const initNavigation = () => {
 
     if (!menuToggle || !nav) return;
 
+    const mobileBreakpoint = window.matchMedia('(max-width: 768px)');
+    const setNavigationOpen = (isOpen) => {
+        const mobileOpen = mobileBreakpoint.matches && isOpen;
+        nav.classList.toggle('active', mobileOpen);
+        menuToggle.setAttribute('aria-expanded', String(mobileOpen));
+        nav.setAttribute('aria-hidden', String(mobileBreakpoint.matches && !mobileOpen));
+        nav.inert = mobileBreakpoint.matches && !mobileOpen;
+    };
+
+    setNavigationOpen(false);
+
+    const handleBreakpointChange = () => setNavigationOpen(false);
+
+    if (mobileBreakpoint.addEventListener) {
+        mobileBreakpoint.addEventListener('change', handleBreakpointChange);
+    } else {
+        mobileBreakpoint.addListener(handleBreakpointChange);
+    }
+
     menuToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        nav.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', nav.classList.contains('active'));
+        setNavigationOpen(!nav.classList.contains('active'));
     });
 
     nav.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
+            setNavigationOpen(false);
         });
     });
 
@@ -27,15 +44,13 @@ const initNavigation = () => {
             !nav.contains(event.target) &&
             !menuToggle.contains(event.target)
         ) {
-            nav.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
+            setNavigationOpen(false);
         }
     });
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
+            setNavigationOpen(false);
             menuToggle.focus();
         }
     });
@@ -220,6 +235,8 @@ const initDynamicTemplates = () => {
         const image = document.createElement('img');
         image.src = tpl.thumbnail;
         image.alt = tpl.nama || 'Coming Soon';
+        image.loading = 'lazy';
+        image.decoding = 'async';
 
         // Menangani jika gambar gagal dimuat
         image.onerror = () => {

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Template | GreetingGo</title>
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
     <meta name="description" content="GreetingGo - Layanan pembuatan kartu ucapan digital yang elegan untuk pernikahan, ulang tahun, surat cinta, wisuda, dan momen spesial lainnya.">
     <meta property="og:title" content="GreetingGo | Kartu Ucapan Digital Elegan">
     <meta property="og:description" content="Buat kartu ucapan digital yang indah dengan mudah untuk setiap momen spesialmu.">
-    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:image" content="logo.png">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="template.css">
@@ -17,14 +17,14 @@
 <body class="template-page">
     <div class="container">
         <header class="sidebar">
-            <button class="menu-toggle" aria-expanded="false">☰</button>
+            <button class="menu-toggle" aria-expanded="false" aria-label="Buka menu navigasi" aria-controls="site-navigation">☰</button>
             <div class="logo">
                 GreetingGo
                 <span class="brand-icon">
                     <img src="logo.png" alt="GreetingGo">
                 </span>
             </div>
-            <nav>
+            <nav id="site-navigation" aria-label="Navigasi utama">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="profil.html">Profil</a></li>
@@ -33,7 +33,6 @@
                     <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </nav>
-            <a href="https://www.instagram.com/greeting.go?mdxt=Z242bnY5d25pdTVn" class="btn-pesan" target="_blank">Pesan Sekarang</a>
         </header>
         <main>
             <section class="template">
@@ -52,12 +51,13 @@
                     <button class="filter-button" data-filter="Acara Lainnya">Acara Lainnya</button>
                 </div>
                 <div id="template-container" class="template-container">
-                    <p id="empty-state-message" style="display: none; text-align: center; width: 100%; grid-column: 1 / -1; color: #fff8ec; font-size: 16px;">
+                    <p id="empty-state-message" style="display: none; text-align: center; width: 100%; grid-column: 1 / -1; color: #59171b; font-size: 16px;">
                         Belum ada template untuk kategori ini.
                     </p>
                 </div>
             </section>
         </main>
+        <a href="https://www.instagram.com/greeting.go?mdxt=Z242bnY5d25pdTVn" class="btn-pesan" target="_blank" rel="noopener noreferrer">Pesan Sekarang</a>
     </div>
     <footer>
         <p>GreetingGo © 2026</p>

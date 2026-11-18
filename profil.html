@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil | GreetingGo</title>
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
     <meta name="description" content="GreetingGo - Layanan pembuatan kartu ucapan digital yang elegan untuk pernikahan, ulang tahun, surat cinta, wisuda, dan momen spesial lainnya.">
     <meta property="og:title" content="GreetingGo | Kartu Ucapan Digital Elegan">
     <meta property="og:description" content="Buat kartu ucapan digital yang indah dengan mudah untuk setiap momen spesialmu.">
-    <meta property="og:image" content="assets/logo.png">
+    <meta property="og:image" content="logo.png">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="profil.css">
@@ -17,14 +17,14 @@
 <body class="profil-page">
     <div class="container">
         <header class="sidebar">
-            <button class="menu-toggle" aria-expanded="false">☰</button>
+            <button class="menu-toggle" aria-expanded="false" aria-label="Buka menu navigasi" aria-controls="site-navigation">☰</button>
             <div class="logo">
                 GreetingGo
                 <span class="brand-icon">
                     <img src="logo.png" alt="GreetingGo">
                 </span>
             </div>
-            <nav>
+            <nav id="site-navigation" aria-label="Navigasi utama">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="profil.html" class="active">Profil</a></li>
@@ -33,7 +33,6 @@
                     <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </nav>
-            <a href="https://www.instagram.com/greeting.go?mdxt=Z242bnY5d25pdTVn" class="btn-pesan" target="_blank">Pesan Sekarang</a>
         </header>
 
         <main>
@@ -80,27 +79,27 @@
                         <h2>Untuk Berbagi Momen</h2>
                         <div class="momen-container">
                             <div class="momen-item">
-                                <img src="pernikahan.jpeg" alt="pernikahan">
+                                <img src="pernikahan.jpeg" alt="Pasangan pengantin di hari pernikahan" loading="lazy" decoding="async">
                                 <h3>Pernikahan</h3>
                                 <p>Rayakan cinta dalam kartu ucapan yang berkesan</p>
                             </div>
                             <div class="momen-item">
-                                <img src="ulang_tahun.jpeg" alt="ulang tahun">
+                                <img src="ulang_tahun.jpeg" alt="Perayaan ulang tahun" loading="lazy" decoding="async">
                                 <h3>Ulang Tahun</h3>
                                 <p>Buat ucapan ulang tahun lebih spesial dan berkesan</p>
                             </div>
                             <div class="momen-item">
-                                <img src="surat_cinta.jpeg" alt="surat cinta">
+                                <img src="surat_cinta.jpeg" alt="Surat cinta" loading="lazy" decoding="async">
                                 <h3>Surat Cinta</h3>
                                 <p>Ucapkan perasaanmu dengan kartu ucapan yang penuh cinta</p>
                             </div>
                             <div class="momen-item">
-                                <img src="wisuda.jpeg" alt="wisuda">
+                                <img src="wisuda.jpeg" alt="Perayaan wisuda" loading="lazy" decoding="async">
                                 <h3>Wisuda</h3>
                                 <p>Rayakan pencapaian istimewa dengan bangga</p>
                             </div>
                             <div class="momen-item">
-                                <img src="perayaan&acara_lainnya.jpeg" alt="perayaan&acara_lainnya">
+                                <img src="perayaan&acara_lainnya.jpeg" alt="Perayaan dan acara lainnya" loading="lazy" decoding="async">
                                 <h3>Perayaan & Acara Lainnya</h3>
                                 <p>Berbagai momen berharga layak dirayakan bersama</p>
                             </div>
@@ -109,6 +108,7 @@
                 </div>
             </section>
         </main>
+        <a href="https://www.instagram.com/greeting.go?mdxt=Z242bnY5d25pdTVn" class="btn-pesan" target="_blank" rel="noopener noreferrer">Pesan Sekarang</a>
     </div>
 
     <footer>

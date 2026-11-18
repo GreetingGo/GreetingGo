@@ -16,7 +16,7 @@ body.faq-page .faq-deskripsi {
     max-width: 700px;
     margin: 0 auto;
     font-size: 16px;
-    color: #fff8ec;
+    color: #59171b;
 }
 body.faq-page .faq-container {
     max-width: 900px;
@@ -24,8 +24,8 @@ body.faq-page .faq-container {
 }
 body.faq-page .faq-item {
     margin-bottom: 15px;
-    background: rgba(254, 215, 184, 0.15);
-    border: 1px solid rgba(254, 215, 184, 0.35);
+    background: rgba(255, 248, 236, 0.58);
+    border: 1px solid rgba(89, 23, 27, 0.15);
     border-radius: 12px;
     overflow: hidden;
 }
@@ -45,7 +45,7 @@ body.faq-page .faq-question {
     font-weight: 600;
 }
 body.faq-page .faq-question:hover {
-    background: rgba(254, 215, 184, 0.15);
+    background: rgba(255, 248, 236, 0.65);
 }
 body.faq-page .faq-icon {
     font-size: 24px;
@@ -65,7 +65,7 @@ body.faq-page .faq-answer-inner {
 body.faq-page .faq-answer-inner p {
     font-size: 14px;
     line-height: 1.7;
-    color: #fff8ec;
+    color: #59171b;
     padding: 0 22px 20px 22px;
     margin: 0;
 }
@@ -90,7 +90,7 @@ body.faq-page .faq-contact {
     margin: 50px auto 20px;
     padding: 30px;
     text-align: center;
-    background: rgba(89, 23, 27, 0.12);
+    background: rgba(255, 248, 236, 0.58);
     border-radius: 15px;
 }
 body.faq-page .faq-contact h2 {
@@ -101,15 +101,15 @@ body.faq-page .faq-contact h2 {
 }
 body.faq-page .faq-contact p {
     font-size: 14px;
-    color: #fff8ec;
+    color: #59171b;
     margin-bottom: 20px;
 }
 body.faq-page .faq-contact-button {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 8px;
-    border: 1px solid #fff3d6;
-    background: linear-gradient(135deg, #fed7b8, #e8c766);
+    border: 1px solid rgba(89, 23, 27, 0.18);
+    background: linear-gradient(135deg, #fff8ec, #fed7b8);
     color: #59171b;
     text-decoration: none;
     font-weight: 700;
@@ -117,7 +117,7 @@ body.faq-page .faq-contact-button {
     transition: 0.25s ease;
 }
 body.faq-page .faq-contact-button:hover {
-    background: linear-gradient(135deg, #fff8e1, #fed7b8);
+    background: linear-gradient(135deg, #fff8ec, #f7c7bc);
 }
 
 /* ========================= RESPONSIVE FAQ ========================= */

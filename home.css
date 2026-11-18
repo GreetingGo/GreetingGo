@@ -1,4 +1,6 @@
+
 /* ========================= HERO HOME ========================= */
+
 body.home-page .hero {
     display: flex;
     flex-direction: column;
@@ -7,24 +9,55 @@ body.home-page .hero {
     padding: 30px 20px 0;
     margin: 0 auto;
     max-width: 900px;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 0;
 }
-body.home-page .hero h1 {
+
+/* TAGLINE BAHASA INGGRIS */
+body.home-page .hero .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(25px, 3.5vw, 40px);
+    font-style: italic;
+    font-weight: 500;
+    color: #59171b;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    margin: 0 0 12px;
+    text-shadow: 0 2px 6px rgba(89, 23, 27, 0.4);
+    max-width: 100%;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+}
+
+/* TAGLINE BAHASA INDONESIA */
+body.home-page .hero .highlight {
     font-family: 'Great Vibes', cursive;
-    font-size: 56px;
+    font-size: clamp(38px, 5vw, 56px);
     font-weight: 400;
     color: #59171b;
-    margin-bottom: 15px;
+    line-height: 1.3;
+    margin: 0 0 15px;
     text-shadow: 0 1px 0 #fff3d6, 0 3px 7px rgba(89, 23, 27, 0.3);
+    max-width: 100%;
+    overflow-wrap: break-word;
+    text-wrap: balance;
 }
+
+/* DESKRIPSI HERO */
 body.home-page .hero p {
     font-size: 17px;
-    color: #fff8ec;
+    color: #59171b;
     max-width: 760px;
     line-height: 1.8;
     text-shadow: 0 1px 4px rgba(89, 23, 27, 0.35);
+    margin: 5px 0 0;
+    width: 100%;
 }
 
+
 /* ========================= KEUNGGULAN HOME ========================= */
+
 body.home-page .keunggulan {
     display: flex;
     flex-direction: column;
@@ -37,6 +70,7 @@ body.home-page .keunggulan {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(89, 23, 27, 0.15);
 }
+
 body.home-page .keunggulan h2 {
     font-family: 'Playfair Display', serif;
     font-size: 28px;
@@ -45,61 +79,172 @@ body.home-page .keunggulan h2 {
     margin-bottom: 25px;
     text-align: center;
 }
+
 body.home-page .keunggulan ul {
     list-style: none;
     width: 100%;
 }
+
 body.home-page .keunggulan li {
     font-size: 16px;
     color: #fff8ec;
     margin-bottom: 14px;
     padding: 12px 18px;
-    background: rgba(89, 23, 27, 0.12);
+    background: rgba(89, 23, 27, 0.68);
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease;
 }
+
 body.home-page .keunggulan li:hover {
     transform: translateY(-3px);
 }
+
 body.home-page .keunggulan li:last-child {
     margin-bottom: 0;
 }
 
-/* ========================= RESPONSIVE HOME ========================= */
-@media (max-width: 768px) {
+
+/* ========================= RESPONSIVE TABLET ========================= */
+
+@media (max-width: 1024px) {
+
     body.home-page .hero {
-        padding: 15px 10px 0;
+        max-width: 850px;
+        padding: 25px 20px 0;
     }
-    body.home-page .hero h1 { 
-        font-size: 38px; 
+
+    body.home-page .hero .hero-tagline {
+        font-size: clamp(25px, 4vw, 36px);
     }
-    body.home-page .hero p { 
-        font-size: 15px; 
+
+    body.home-page .hero .highlight {
+        font-size: clamp(38px, 5.5vw, 50px);
     }
-    body.home-page .keunggulan { 
-        width: 100%; 
+
+}
+
+
+/* ========================= RESPONSIVE TABLET KECIL ========================= */
+
+@media (max-width: 768px) {
+
+    body.home-page .hero {
+        padding: 20px 15px 0;
+    }
+
+    body.home-page .hero .hero-tagline {
+        font-size: clamp(24px, 4.5vw, 32px);
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+    }
+
+    body.home-page .hero .highlight {
+        font-size: clamp(36px, 6vw, 45px);
+        margin-bottom: 12px;
+    }
+
+    body.home-page .hero p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    body.home-page .keunggulan {
+        width: 100%;
         margin-top: 35px;
-        padding: 25px 20px; 
+        padding: 25px 20px;
+        box-sizing: border-box;
     }
+
     body.home-page .keunggulan h2 {
         font-size: 24px;
         margin-bottom: 18px;
     }
+
     body.home-page .keunggulan li {
         font-size: 14px;
         padding: 10px 14px;
     }
+
 }
 
+
+/* ========================= RESPONSIVE HP ========================= */
+
 @media (max-width: 480px) {
-    body.home-page .hero h1 { 
-        font-size: 32px; 
+
+    body.home-page .hero {
+        padding: 18px 12px 0;
     }
-    body.home-page .hero p { 
-        font-size: 14px; 
+
+    body.home-page .hero .hero-tagline {
+        font-size: clamp(21px, 6vw, 27px);
+        line-height: 1.4;
+        letter-spacing: 0;
+        margin-bottom: 9px;
     }
+
+    body.home-page .hero .highlight {
+        font-size: clamp(32px, 8vw, 39px);
+        line-height: 1.35;
+        margin-bottom: 12px;
+    }
+
+    body.home-page .hero p {
+        font-size: 14px;
+        line-height: 1.7;
+        padding: 0 3px;
+    }
+
     body.home-page .keunggulan {
         padding: 20px 15px;
+        margin-top: 30px;
     }
+
+    body.home-page .keunggulan h2 {
+        font-size: 22px;
+    }
+
+    body.home-page .keunggulan li {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+
+}
+
+
+/* ========================= RESPONSIVE HP KECIL ========================= */
+
+@media (max-width: 360px) {
+
+    body.home-page .hero {
+        padding: 15px 10px 0;
+    }
+
+    body.home-page .hero .hero-tagline {
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    body.home-page .hero .highlight {
+        font-size: 31px;
+        line-height: 1.3;
+    }
+
+    body.home-page .hero p {
+        font-size: 13px;
+    }
+
+    body.home-page .keunggulan {
+        padding: 18px 12px;
+    }
+
+    body.home-page .keunggulan h2 {
+        font-size: 20px;
+    }
+
+    body.home-page .keunggulan li {
+        font-size: 12px;
+    }
+
 }
